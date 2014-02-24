@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "iAdHelper"
-  s.version      = "1.0"
+  s.version      = "0.1"
   s.summary      = "Objective-C Helper class to ease integration with iAd for Cocos2D v3"
   s.homepage     = "https://github.com/svenanders/iAdHelper"
   s.license      = { :type => "MIT", :file => "LICENSE"}
