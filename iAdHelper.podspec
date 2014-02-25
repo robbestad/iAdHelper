@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.author             = { "Sven Anders Robbestad" => "robbestad@gmail.com" }
   s.social_media_url = "http://twitter.com/svenardocom"
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/svenanders/iAdHelper.git", :tag => "0.1" }
+  s.source       = { :git => "https://github.com/svenanders/iAdHelper.git", :tag => "0.2" }
   s.source_files  = 'Classes', 'iAdHelper/**/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
   s.framework  = 'iAd'
