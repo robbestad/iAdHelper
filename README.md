@@ -11,3 +11,7 @@ Usage
 * In your _didLoadFromCCB_ method, add *[iAdHelper sharedHelper];*
 
 That's it. Ads are enabled.
+
+==========
+Live Demo
+Check out https://itunes.apple.com/us/app/rocketdoge/id813052886 where this implementation is added to every scene
