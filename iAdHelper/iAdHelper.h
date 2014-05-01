@@ -7,6 +7,9 @@
 //
 
 #import <iAd/iAd.h>
+#ifndef CC_DIRECTOR
+#import "cocos2d.h"
+#endif
 
 #ifndef IADHELPER_LOGGING
     #define IADHELPER_LOGGING 0
