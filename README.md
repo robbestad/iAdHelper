@@ -12,6 +12,11 @@ Usage
 
 That's it. Ads are enabled.
 
+New as of Sept 2. 12014
+========
+* Ads now display on top as default. To explicitly set the position, include the following parameter *[iAdHelper setBannerPosition:BOTTOM];* (alternatives are TOP or BOTTOM)
+
+
 ==========
 Live Demo
 Check out https://itunes.apple.com/us/app/rocketdoge/id813052886 where this implementation is added to every scene
