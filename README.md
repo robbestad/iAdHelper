@@ -9,12 +9,20 @@ Usage
 * Add the files in the iAdHelper folder to your project
 * Include "iAdHelper.h" in your implementation file
 * In your init method, add *[iAdHelper sharedHelper];*
+* Ads are display at the top of screen as default. 
+* To explicitly set the position, include the following parameter
+* *[iAdHelper setBannerPosition:BOTTOM];* (alternatives are TOP or BOTTOM)
 
 That's it. Ads are enabled.
 
-New as of Sept 2. 12014
-========
-* Ads now display on top as default. To explicitly set the position, include the following parameter *[iAdHelper setBannerPosition:BOTTOM];* (alternatives are TOP or BOTTOM)
+
+Sample Init
+=========
+
+	- (void)didLoadFromCCB {
+    	[iAdHelper sharedHelper];
+    	[iAdHelper setBannerPosition:BOTTOM];
+	}
 
 
 ==========
