@@ -1,9 +1,9 @@
 //
 //  iAdHelper.m
+//  Rocket Doge
 //
 //  Created by Sven Anders Robbestad on 23.02.14.
-//  Copyright (c) 2014 Sven Anders Robbestad. All rights reserved.
-//  See LICENSE
+//  Copyright (c) 2014 Apportable. All rights reserved.
 //
 
 #import "iAdHelper.h"
@@ -16,13 +16,25 @@
 
 @synthesize bannerView = _bannerView;
 
+bannerPosition theBannerPosition;
+
+
 #pragma mark - Singleton
 +(id) sharedHelper
 {
     static ADBannerView *sharedHelper = nil;
     static dispatch_once_t once = 0;
     dispatch_once(&once, ^{sharedHelper = [[self alloc] init];});
+    
     return sharedHelper;
+}
+
++ (void)setBannerPosition:(bannerPosition)bannerPos{
+    theBannerPosition=bannerPos;
+}
+
++ (bannerPosition)getBannerPosition{
+    return theBannerPosition;
 }
 
 #pragma mark - Initializer
@@ -30,6 +42,7 @@
 {
     if( (self= [super init]) )
     {
+      
         // On iOS 6 ADBannerView introduces a new initializer, use it when available.
         if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
             _bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
@@ -73,13 +86,21 @@
         _bannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierLandscape;
     }
     
-     
+    NSLog(@"banner pos: %u",theBannerPosition);
     CGRect bannerFrame = _bannerView.frame;
     if (_bannerView.bannerLoaded) {
         contentFrame.size.height -= _bannerView.frame.size.height;
-        bannerFrame.origin.y = contentFrame.size.height;
+        if(theBannerPosition == BOTTOM){
+          bannerFrame.origin.y = contentFrame.size.height;
+        } else {
+        bannerFrame.origin.y = 0;
+        }
     } else {
-        bannerFrame.origin.y = contentFrame.size.height;
+        if(theBannerPosition == BOTTOM){
+            bannerFrame.origin.y = contentFrame.size.height;
+        } else {
+            bannerFrame.origin.y = 0;
+        }
     }
     
     [UIView animateWithDuration:animated ? 0.25 : 0.0 animations:^{
